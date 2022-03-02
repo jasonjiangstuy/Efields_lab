@@ -37,7 +37,7 @@ ax.plot_trisurf(df['X'], df['Y'], df['Z'], cmap=plt.cm.viridis, linewidth=0.2)
 #ax.plot_trisurf(df['X'], df['Y'], df['Z'], cmap=plt.cm.RdBu, linewidth=0.2)
 #ax.plot_trisurf(df['X'], df['Y'], df['Z'], cmap=plt.cm.PiYG, linewidth=0.2)
 
-# plt.tricontourf(df['X'], df['Y'], df['Z'])
+plt.tricontourf(df['X'], df['Y'], df['Z'])
 
 ax.set_xlabel('X coordinate (cm)')
 ax.set_ylabel('Y coordinate (cm)')
