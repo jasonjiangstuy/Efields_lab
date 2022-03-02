@@ -30,18 +30,31 @@ fig = plt.figure()
 
 ax = fig.add_subplot(projection='3d')
 
-# ax.contour(df['X'], df['Y'], [0,5],extend3dbool=True,stride=.5, linewidth=0.2)
 ax.plot_trisurf(df['X'], df['Y'], df['Z'], cmap=plt.cm.viridis, linewidth=0.2)
 #ax.plot_trisurf(df['X'], df['Y'], df['Z'], cmap=plt.cm.coolwarm, linewidth=0.2)
 #ax.plot_trisurf(df['X'], df['Y'], df['Z'], cmap=plt.cm.inferno, linewidth=0.2)
 #ax.plot_trisurf(df['X'], df['Y'], df['Z'], cmap=plt.cm.RdBu, linewidth=0.2)
 #ax.plot_trisurf(df['X'], df['Y'], df['Z'], cmap=plt.cm.PiYG, linewidth=0.2)
 
-plt.tricontourf(df['X'], df['Y'], df['Z'])
+# contour line drawing
+# ax.contour(df['X'], df['Y'], [0,5],extend3dbool=True,stride=.5, linewidth=0.2) fail
 
 ax.set_xlabel('X coordinate (cm)')
 ax.set_ylabel('Y coordinate (cm)')
 ax.set_zlabel('Voltage (V)')
+
+plt.title('Electric Potential Scalar Field')
+
+plt.show()
+
+level = []#the z contour lines to draw
+num_of_levels = 10;
+max_v = 6;
+current = 0;
+for i in range(0, num_of_levels):
+    level.append(current)
+    current += max_v/num_of_levels
+plt.tricontourf(df['X'], df['Y'], df['Z'], levels=level)
 
 plt.title('Electric Potential Scalar Field')
 
